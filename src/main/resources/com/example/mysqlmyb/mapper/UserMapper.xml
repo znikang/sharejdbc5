@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mysqlmyb.mapper.UserMapper">
+
+
+    <select id="getById" parameterType="long" resultType="com.example.mysqlmyb.dto.User">
+		SELECT * FROM User WHERE __id=#{id}
+	</select>
+
+
+	<select id="getall" parameterType="long" resultType="com.example.mysqlmyb.dto.User">
+		SELECT * FROM User order by id desc
+	</select>
+
+
+	<select id="getallorder" parameterType="long" resultType="com.example.mysqlmyb.dto.UserOrder">
+		SELECT * FROM User as u left join `Order` o  on u.id = o.userid  order by u.id desc
+	</select>
+
+	<insert id="insert">
+		insert into User (id, name , age) value (#{id},#{name},#{age});
+
+	</insert>
+</mapper>
