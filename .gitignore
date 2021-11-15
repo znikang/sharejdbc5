@@ -8,6 +8,7 @@ target
 .classpath
 .project
 .iml
+*.iml
 Servers
 /api-v1-client-java/
 /java-client/
